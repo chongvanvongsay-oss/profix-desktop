@@ -38,9 +38,10 @@ This one command:
    (`.dmg`, both x64 and arm64) — run it on a Mac to get the Mac installer,
    since Apple doesn't allow building signed/packaged Mac apps on
    Windows/Linux,
-3. Uploads everything to a **new GitHub Release** matching the version
-   (as a **draft** — electron-builder's default, so nothing goes live until
-   you approve it),
+3. Uploads everything to a **new GitHub Release** matching the version and
+   **publishes it live immediately** (confirmed on the actual `v2.0.0` run —
+   this electron-builder config does not create it as a draft, unlike some
+   other setups),
 4. Prunes old local build artifacts from `release/` (keeps the 2 most recent
    versions).
 
@@ -52,15 +53,14 @@ expects (it downloads whichever installer matches the OS the user is on).
 
 ### Finishing the release
 
-1. Go to your repo's **Releases** page on GitHub.
-2. You'll see a new **draft** release with the installers attached
-   (`Pro Fix-2.0.0-x64.exe`, `Pro Fix-2.0.0-arm64.dmg`,
-   `Pro Fix-2.0.0-x64.dmg`, plus `latest.yml` / `latest-mac.yml` — those two
-   small files are what `electron-updater` reads to know a new version
-   exists, don't delete them).
-3. Double-check the assets look right, then click **Publish release**.
-4. Done. Anyone running an older installed copy of the app will pick up the
-   update automatically the next time they open it (or immediately if they
+Nothing to do — the release goes live automatically. Just double check on
+your repo's **Releases** page that the installers are attached
+(`Pro Fix-2.0.0-x64.exe`, `Pro Fix-2.0.0-arm64.dmg`, `Pro Fix-2.0.0-x64.dmg`,
+plus `latest.yml` / `latest-mac.yml` — those two small files are what
+`electron-updater` reads to know a new version exists, don't delete them).
+
+Anyone running an older installed copy of the app will pick up the
+update automatically the next time they open it (or immediately if they
    click **Check for Updates** in Settings).
 
 ## Why the Mac side is different
