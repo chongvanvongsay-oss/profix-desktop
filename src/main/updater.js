@@ -19,6 +19,7 @@ autoUpdater.autoInstallOnAppQuit = true;
 
 function register(ipcMain, app, getWindow) {
     function sendStatus(payload) {
+        console.log('[updater]', JSON.stringify(payload));
         const win = getWindow();
         if (win && !win.isDestroyed()) win.webContents.send('updater:status', payload);
     }
