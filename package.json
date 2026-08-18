@@ -1,0 +1,89 @@
+{
+  "name": "profix-desktop",
+  "version": "1.0.0",
+  "description": "Pro Fix — ระบบติดตามรถและจัดการข้อมูลลูกค้า (Desktop, offline-first)",
+  "main": "src/main/index.js",
+  "author": "Pro Fix",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "test": "node test/run.js",
+    "postinstall": "electron-builder install-app-deps",
+    "dist": "node scripts/bump-version.js && node scripts/clean-unpacked.js && electron-builder -mw && node scripts/prune-releases.js",
+    "publish": "node scripts/bump-version.js && node scripts/clean-unpacked.js && electron-builder -mw --publish always && node scripts/prune-releases.js",
+    "dist:mac": "electron-builder --mac",
+    "dist:win": "electron-builder --win",
+    "dist:all": "electron-builder -mw"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.3.0",
+    "bcryptjs": "^2.4.3",
+    "electron-updater": "^6.8.9"
+  },
+  "devDependencies": {
+    "electron": "^32.0.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.profix.tracker",
+    "productName": "Pro Fix",
+    "asar": true,
+    "artifactName": "${productName}-${version}-${arch}.${ext}",
+    "files": [
+      "src/**/*",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "src/db",
+        "to": "db"
+      }
+    ],
+    "directories": {
+      "output": "release",
+      "buildResources": "build"
+    },
+    "mac": {
+      "category": "public.app-category.business",
+      "icon": "build/icon.icns",
+      "identity": null,
+      "hardenedRuntime": false,
+      "gatekeeperAssess": false,
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        }
+      ]
+    },
+    "win": {
+      "icon": "build/icon.png",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "chongvanvongsay-oss",
+        "repo": "profix-desktop",
+        "releaseType": "release"
+      }
+    ]
+  }
+}

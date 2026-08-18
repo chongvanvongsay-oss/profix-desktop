@@ -1,0 +1,47 @@
+name: Build desktop installers
+
+# สร้างตัวติดตั้งจริงสำหรับ Windows (.exe) และ macOS (.dmg) บน runner ของแต่ละ OS โดยตรง
+# (จำเป็น — electron-builder ไม่สามารถ cross-compile ตัวติดตั้ง Windows จาก macOS ได้
+# โดยไม่ต้องใช้ Wine ดังนั้นจึงใช้ GitHub Actions matrix รันบน windows-latest และ macos-latest จริง)
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch: {}
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        include:
+          - os: macos-latest
+            script: dist:mac
+          - os: windows-latest
+            script: dist:win
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run DB/business-logic tests
+        run: npm test
+
+      - name: Build installer
+        run: npm run ${{ matrix.script }}
+
+      - name: Upload installer artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: profit-${{ matrix.os }}
+          path: |
+            app/release/*.dmg
+            app/release/*.exe
+          if-no-files-found: error
