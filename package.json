@@ -1,6 +1,6 @@
 {
   "name": "profix-desktop",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Pro Fix — ระบบติดตามรถและจัดการข้อมูลลูกค้า (Desktop, offline-first)",
   "main": "src/main/index.js",
   "author": "Pro Fix",
