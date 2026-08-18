@@ -6,15 +6,13 @@ This app checks GitHub Releases for new versions on its own (via
 run to actually publish a new version there — same pattern as
 `cs-inventory-desktop`.
 
-## One-time setup (ยังไม่ได้ทำ — ต้องทำก่อนใช้ฟีเจอร์นี้ได้จริง)
+## One-time setup (ทำแล้ว ✅)
 
-1. **Create the GitHub repo**, if it doesn't exist yet:
-   `chongvanvongsay-oss/profix-desktop` (these are already set in
-   `package.json` under `build.publish` and in `src/main/updater.js` — if you
-   rename the repo or use a different account, update both places to match).
-2. **Push this project to that repo** (`git init`, `git remote add origin
-   https://github.com/chongvanvongsay-oss/profix-desktop.git`, commit, push)
-   if you haven't already. (ตอนนี้โฟลเดอร์นี้ยังไม่ใช่ git repo เลย — ต้อง `git init` ก่อน)
+1. **สร้าง GitHub repo**: `Chongvanvongsay/profix-desktop` (ตั้งไว้แล้วใน
+   `package.json` ภายใต้ `build.publish` และใน `src/main/updater.js` — ถ้าเปลี่ยนชื่อ
+   repo หรือใช้ account อื่นในอนาคต ต้องแก้ทั้งสองที่ให้ตรงกัน)
+2. **Push โปรเจกต์นี้ขึ้น repo นั้น** — `git init` + commit แรก + push ไปที่
+   `https://github.com/Chongvanvongsay/profix-desktop.git` เสร็จแล้ว
 3. **Create a GitHub Personal Access Token** (Settings → Developer settings
    → Personal access tokens → Tokens (classic) → Generate new token) with
    the `repo` scope (or `public_repo` if the repo is public). This is what
