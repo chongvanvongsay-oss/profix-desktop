@@ -105,7 +105,7 @@ npm run dist:all    # ทั้งคู่ในคำสั่งเดีย�
 **"ตรวจสอบอัปเดต"** ให้เช็คเองได้ที่หน้า Settings — ใช้ [`electron-updater`](https://www.electron.build/auto-update)
 อ่านจาก GitHub Releases ตามแบบเดียวกับ `cs-inventory-desktop` (โปรแกรมก่อนหน้า) เป๊ะๆ
 
-repo [`Chongvanvongsay/profix-desktop`](https://github.com/Chongvanvongsay/profix-desktop) สร้างและ push
+repo [`chongvanvongsay-oss/profix-desktop`](https://github.com/chongvanvongsay-oss/profix-desktop) สร้างและ push
 โค้ดขึ้นไปแล้ว — เหลือแค่สร้าง GitHub token แล้วรัน `npm run publish` ครั้งแรกเพื่อให้มี release จริง
 ให้ระบบอัปเดตเช็คได้ (ตอนนี้กด "ตรวจสอบอัปเดต" จะยังเจอ error เพราะยังไม่มี release เลย ไม่ใช่บั๊ก)
 ดูขั้นตอนทั้งหมดใน [`RELEASING.md`](RELEASING.md)

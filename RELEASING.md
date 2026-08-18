@@ -8,11 +8,11 @@ run to actually publish a new version there — same pattern as
 
 ## One-time setup (ทำแล้ว ✅)
 
-1. **สร้าง GitHub repo**: `Chongvanvongsay/profix-desktop` (ตั้งไว้แล้วใน
+1. **สร้าง GitHub repo**: `chongvanvongsay-oss/profix-desktop` (ตั้งไว้แล้วใน
    `package.json` ภายใต้ `build.publish` และใน `src/main/updater.js` — ถ้าเปลี่ยนชื่อ
    repo หรือใช้ account อื่นในอนาคต ต้องแก้ทั้งสองที่ให้ตรงกัน)
 2. **Push โปรเจกต์นี้ขึ้น repo นั้น** — `git init` + commit แรก + push ไปที่
-   `https://github.com/Chongvanvongsay/profix-desktop.git` เสร็จแล้ว
+   `https://github.com/chongvanvongsay-oss/profix-desktop.git` เสร็จแล้ว
 3. **Create a GitHub Personal Access Token** (Settings → Developer settings
    → Personal access tokens → Tokens (classic) → Generate new token) with
    the `repo` scope (or `public_repo` if the repo is public). This is what

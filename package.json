@@ -80,7 +80,7 @@
     "publish": [
       {
         "provider": "github",
-        "owner": "Chongvanvongsay",
+        "owner": "chongvanvongsay-oss",
         "repo": "profix-desktop",
         "releaseType": "release"
       }

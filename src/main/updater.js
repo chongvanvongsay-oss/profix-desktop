@@ -10,7 +10,7 @@
 const { autoUpdater } = require('electron-updater');
 const { shell } = require('electron');
 
-const UPDATE_OWNER = 'Chongvanvongsay';
+const UPDATE_OWNER = 'chongvanvongsay-oss';
 const UPDATE_REPO = 'profix-desktop';
 const RELEASES_URL = `https://github.com/${UPDATE_OWNER}/${UPDATE_REPO}/releases/latest`;
 
